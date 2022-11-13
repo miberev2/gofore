@@ -1,0 +1,50 @@
+.page-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  width: 100%;
+  background-color: lightgrey;
+  text-align: center;
+  .error {
+    font-weight: bold;
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    left: 0;
+  }
+  .loader {
+    position: fixed;
+    top: calc(50% - 26px);
+    left: calc(50% - 26px);
+    -webkit-animation: fadeIn 1s linear 1; /* Safari */
+    animation: fadeIn 1s linear 1;
+    .loading {
+      border: 6px solid white;
+      border-radius: 50%;
+      border-top: 6px solid black;
+      width: 24px;
+      height: 24px;
+      -webkit-animation: spin 1.5s linear infinite; /* Safari */
+      animation: spin 1.5s linear infinite;
+    }
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  @keyframes fadeIn {
+    0%,
+    30% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

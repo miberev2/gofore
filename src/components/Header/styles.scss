@@ -1,0 +1,59 @@
+.header {
+  width: calc(100% - 40px);
+  padding: 10px 20px;
+  margin: 0;
+  background-color: black;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+  .info,
+  .page-title,
+  .filter {
+    padding: 0;
+    margin: 0;
+    color: white;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .info {
+    text-align: left;
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+  .page-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 10px;
+  }
+  .filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .filter-select {
+      .filter-header {
+        text-align: center;
+      }
+      select {
+        cursor: pointer;
+      }
+    }
+    .sort-direction {
+      user-select: none;
+      height: 100%;
+      padding-right: 10px;
+      .arrow {
+        font-size: 30px;
+        cursor: pointer;
+      }
+    }
+  }
+}

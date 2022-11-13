@@ -1,0 +1,83 @@
+.story {
+  padding: 20px 10px;
+  margin-top: 10px;
+  background-color: white;
+  width: calc(50% - 20px);
+  color: black;
+  max-width: 800px;
+  border: 1px solid black;
+  .icon {
+    cursor: pointer;
+    user-select: none;
+    &.close {
+      transform: rotate(-90deg);
+    }
+    &.open {
+      transform: rotate(90deg);
+    }
+    position: absolute;
+  }
+  .open-container {
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      width: calc(100% - 40px);
+      float: left;
+      padding: 10px 20px;
+    }
+    .time,
+    .author {
+      float: right;
+      font-style: italic;
+      padding-right: 20px;
+    }
+    .url {
+      width: calc(100% - 40px);
+      float: left;
+      margin: 10px 20px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .text {
+      width: calc(100% - 40px);
+      float: left;
+      margin: 10px 20px;
+      word-break: break-all;
+    }
+  }
+  .closed-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      padding: 0 20px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .url {
+      font-style: italic;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .story {
+    width: calc(100% - 40px);
+    margin: 8px 10px;
+    .open-container {
+      .title,
+      .time,
+      .author {
+        width: calc(100% - 40px);
+        float: left;
+        padding: 10px 20px;
+      }
+    }
+  }
+}
