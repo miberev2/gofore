@@ -30,7 +30,7 @@ class PageContents extends React.Component {
         ? [...details?.stories]
             ?.filter((story) => story.url || story.text)
             ?.sort((a, b) =>
-            sort === "by"
+              sort === "by"
                 ? this.alphabeticalSort(a, b, sort, ascending)
                 : ascending
                 ? b[sort] - a[sort]
