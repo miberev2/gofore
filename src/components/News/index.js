@@ -7,7 +7,7 @@ function News({ stories }) {
   const [opened, setOpened] = useState([]);
   const intObserver = useRef();
 
-  // Close all stories on data or filter change
+  // Close all stories on sort change
   useEffect(() => {
     setOpened([]);
   }, [stories]);
@@ -44,7 +44,12 @@ function News({ stories }) {
           <div className="title">{title}</div>
           {url && (
             <div className="url">
-              <a title={url} href={url} target="_blank">
+              <a
+                title={url}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {url}
               </a>
             </div>

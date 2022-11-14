@@ -69,7 +69,7 @@ export const getIds = () => async (dispatch) => {
     dispatch(getNewsFailed(response.error));
   } else {
     dispatch(getNewsSuccess(response));
-    // Get details for each ID
+    // Get details for each ID. Flag last id call.
     response.forEach((id, i) => {
       dispatch(getDetails(id, i === response.length - 1));
     });
