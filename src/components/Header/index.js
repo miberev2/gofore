@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setFilter, flipSort } from "../../utils/newsSlice";
+import { setSort, flipSort } from "../../utils/newsSlice";
 require("./styles.scss");
 
 class Header extends React.Component {
   render() {
-    const { ascending, flipSort, setFilter, filter } = this.props;
+    const { ascending, flipSort, setSort, sort } = this.props;
     return (
       <div className="header">
         <div className="info">
@@ -13,10 +13,10 @@ class Header extends React.Component {
           <div>Mikko Taipale</div>
         </div>
         <div className="page-title">Hacker News</div>
-        <div className="filter">
-          <div className="filter-select">
-            <div className="filter-header">Filter by</div>
-            <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+        <div className="sort">
+          <div className="sort-select">
+            <div className="sort-header">Sort by</div>
+            <select value={sort} onChange={(e) => setSort(e.target.value)}>
               <option value="score">Score</option>
               <option value="time">Time</option>
               <option value="by">Author</option>
@@ -37,10 +37,10 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  filter: state.news.filter,
+  sort: state.news.sort,
   ascending: state.news.ascending,
 });
 
-const mapDispatchToProps = { setFilter, flipSort };
+const mapDispatchToProps = { setSort, flipSort };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

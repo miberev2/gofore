@@ -11,7 +11,7 @@ const slice = createSlice({
       requesting: false,
       error: null,
     },
-    filter: "score",
+    sort: "score",
     ascending: true,
   },
 
@@ -40,10 +40,10 @@ const slice = createSlice({
     getDetailsFailed: (state, action) => {
       state.details.error = action.payload;
     },
-    setNewFilter: (state, action) => {
-      state.filter = action.payload;
+    setNewSort: (state, action) => {
+      state.sort = action.payload;
     },
-    setSort: (state) => {
+    flipSortDirection: (state) => {
       state.ascending = !state.ascending;
     },
   },
@@ -56,8 +56,8 @@ const {
   getNewsSuccess,
   getDetailsConfirm,
   getDetailsSuccess,
-  setNewFilter,
-  setSort,
+  setNewSort,
+  flipSortDirection,
   getNewsFailed,
   getDetailsFailed,
 } = slice.actions;
@@ -86,10 +86,10 @@ export const getDetails = (id, last) => async (dispatch) => {
   }
 };
 
-export const setFilter = (filter) => (dispatch) => {
-  dispatch(setNewFilter(filter));
+export const setSort = (sort) => (dispatch) => {
+  dispatch(setNewSort(sort));
 };
 
 export const flipSort = () => (dispatch) => {
-  dispatch(setSort());
+  dispatch(flipSortDirection());
 };

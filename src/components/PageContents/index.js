@@ -11,18 +11,18 @@ class PageContents extends React.Component {
   }
 
   // Alphabetical sort for author
-  alphabeticalSort = (a, b, filter, ascending) => {
-    if (a[filter] < b[filter]) {
+  alphabeticalSort = (a, b, sort, ascending) => {
+    if (a[sort] < b[sort]) {
       return ascending ? -1 : 1;
     }
-    if (a[filter] > b[filter]) {
+    if (a[sort] > b[sort]) {
       return ascending ? 1 : -1;
     }
     return 0;
   };
 
   render() {
-    const { ids, details, filter, ascending } = this.props;
+    const { ids, details, sort, ascending } = this.props;
     const error = ids.error || details.error;
     const loading = ids.requesting || details.requesting;
     const sortedData =
@@ -30,11 +30,11 @@ class PageContents extends React.Component {
         ? [...details?.stories]
             ?.filter((story) => story.url || story.text)
             ?.sort((a, b) =>
-              filter === "by"
-                ? this.alphabeticalSort(a, b, filter, ascending)
+            sort === "by"
+                ? this.alphabeticalSort(a, b, sort, ascending)
                 : ascending
-                ? b[filter] - a[filter]
-                : a[filter] - b[filter]
+                ? b[sort] - a[sort]
+                : a[sort] - b[sort]
             )
         : [];
 
@@ -57,7 +57,7 @@ class PageContents extends React.Component {
 const mapStateToProps = (state) => ({
   ids: state.news.ids,
   details: state.news.details,
-  filter: state.news.filter,
+  sort: state.news.sort,
   ascending: state.news.ascending,
 });
 

@@ -13,7 +13,7 @@
   height: 50px;
   .info,
   .page-title,
-  .filter {
+  .sort {
     padding: 0;
     margin: 0;
     color: white;
@@ -34,12 +34,12 @@
     font-weight: bold;
     padding: 0 10px;
   }
-  .filter {
+  .sort {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    .filter-select {
-      .filter-header {
+    .sort-select {
+      .sort-header {
         text-align: center;
       }
       select {
