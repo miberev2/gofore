@@ -12,10 +12,10 @@ class PageContents extends React.Component {
 
   // Alphabetical sort for author
   alphabeticalSort = (a, b, sort, ascending) => {
-    if (a[sort] < b[sort]) {
+    if (a[sort]?.toUpperCase() < b[sort]?.toUpperCase()) {
       return ascending ? -1 : 1;
     }
-    if (a[sort] > b[sort]) {
+    if (a[sort]?.toUpperCase() > b[sort]?.toUpperCase()) {
       return ascending ? 1 : -1;
     }
     return 0;
